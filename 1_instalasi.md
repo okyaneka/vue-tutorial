@@ -23,3 +23,5 @@ dan file vue akan terletak pada direktori /dist
 ```
 bower install vue
 ```
+
+[Kembali](https://github.com/okyaneka/vue-tutorial/blob/master/README.md)
