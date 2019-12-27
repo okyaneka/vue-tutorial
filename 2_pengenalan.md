@@ -1,11 +1,12 @@
 ## Pengenalan
+
 ### Membuat "Hello Vue"
-```
+```html
 <div id="app">
   {{ message }}
 </div>
 ```
-```
+```javascript
 var app = new Vue({
   el: '#app',
   data: {
@@ -16,12 +17,12 @@ var app = new Vue({
 
 ### Kondisional dan perulangan sederhana
 #### Kondisional
-```
+```html
 <div id="app-3">
   <span v-if="seen">Now you see me</span>
 </div>
 ```
-```
+```javascript
 var app3 = new Vue({
   el: '#app-3',
   data: {
@@ -31,8 +32,8 @@ var app3 = new Vue({
 ```
 terdapat atribut `v-if` yang memiliki nilai `"seen"`. Atribut tersebut akan memeriksa data dari `seen`, jika `seen == true` maka tulisan "Now you see me" akan terlihat.
 
-### Perulangan
-```
+#### Perulangan
+```html
 <div id="app-4">
   <ol>
     <li v-for="todo in todos">
@@ -41,7 +42,7 @@ terdapat atribut `v-if` yang memiliki nilai `"seen"`. Atribut tersebut akan meme
   </ol>
 </div>
 ```
-```
+```javascript
 var app4 = new Vue({
   el: '#app-4',
   data: {
@@ -57,13 +58,13 @@ Pada atribut `v-for="todo in todos` itu dapat diartikan ulangi yang berada pada 
 
 ### Binding sederhana
 #### Menggunakan **button**
-```
+```html
 <div id="app-5">
   <p>{{ message }}</p>
   <button v-on:click="reverseMessage">Reverse Message</button>
 </div>
 ```
-```
+```javascript
 var app5 = new Vue({
   el: '#app-5',
   data: {
@@ -78,13 +79,13 @@ var app5 = new Vue({
 ```
 
 #### Menguunakan input
-```
+```html
 <div id="app-6">
   <p>{{ message }}</p>
   <input v-model="message">
 </div>
 ```
-```
+```javascript
 var app6 = new Vue({
   el: '#app-6',
   data: {
@@ -107,7 +108,7 @@ var app = new Vue(...)
 ```
 
 Dengan menggunakan komponen, kamu bisa langsung memanggil komponen tersebut sebagai tag
-```
+```html
 <ol>
   <!-- Create an instance of the todo-item component -->
   <todo-item></todo-item>
@@ -115,7 +116,7 @@ Dengan menggunakan komponen, kamu bisa langsung memanggil komponen tersebut seba
 ```
 
 Pembuatan komponen yang membawa properti dapat dibuat sebagai berikut:
-```
+```javascript
 Vue.component('todo-item', {
   // Komponen todo-item membawa properti todo
   props: ['todo'],
@@ -124,7 +125,7 @@ Vue.component('todo-item', {
 ```
 
 Penggunaan komponen yang membawa properti dapat dituliskan sebagai berikut:
-```
+```html
 <div id="app-7">
   <ol>
     <todo-item
@@ -135,7 +136,7 @@ Penggunaan komponen yang membawa properti dapat dituliskan sebagai berikut:
   </ol>
 </div>
 ```
-```
+```javascript
 Vue.component('todo-item', {
   props: ['todo'],
   template: '<li>{{ todo.text }}</li>'
@@ -155,7 +156,7 @@ var app7 = new Vue({
 Pada atribut `v-for` mengikat variabel `groceryList` yang setiap perulangannya diletakan pada variabel `item`. Kemudian variabel `item` tersebut diikat pada properti `todo` menggunakan atribut `v-bind:todo="item"` dan juga properti `key` menggunakan atribut `v-bind:key="item.id"` (akan dijelaskan selanjutnya).
 
 Dalam aplikasi skala besar, aplikasi tersebut dipecah menjadi beberapa komponen untuk mempbuat pengembangan menjadi lebih mudah untuk dikelola
-```
+```html
 <div id="app">
   <app-nav></app-nav>
   <app-view>
